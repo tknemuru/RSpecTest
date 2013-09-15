@@ -15,3 +15,14 @@ describe Array, "when empty" do
     @empty_array = nil
   end
 end
+
+describe Array, "when initialized with object" do
+  before do
+    @array = Array.new(3, Hash.new) # これは勘違い
+    @array[0] [:cat] = "Nuko"
+  end
+
+  it "should not affect others" do
+    @array.should == [{:cat => "Nuko"}, {}, {}]
+  end
+end
