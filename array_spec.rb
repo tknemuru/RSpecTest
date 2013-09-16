@@ -18,7 +18,7 @@ end
 
 describe Array, "when initialized with object" do
   before do
-    @array = Array.new(3, Hash.new) # これは勘違い
+    @array = Array.new(3){ Hash.new }  # これが正しい
     @array[0] [:cat] = "Nuko"
   end
 
